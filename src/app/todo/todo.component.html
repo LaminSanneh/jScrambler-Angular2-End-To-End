@@ -1,0 +1,9 @@
+<form (ngSubmit)="submittedTodo()">
+    <input type="text" 
+        (click)="titleClicked()" 
+        [class.in-list-mode]="!inEditMode" 
+        name="inEditMode"
+        (blur)="onBlur()" 
+        [(ngModel)]="todo.title" >
+        <span (click)="deleteTodoOnChild(todo)">Delete</span>
+</form>
