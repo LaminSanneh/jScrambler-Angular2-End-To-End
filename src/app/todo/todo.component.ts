@@ -9,23 +9,10 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 })
 export class TodoComponent implements OnInit {
   todo;
-  inEditMode = false;
   public deleteTodo: EventEmitter<any> = new EventEmitter();
   constructor() {}
 
   ngOnInit() {
-  }
-
-  titleClicked(e) {
-    this.inEditMode = true;
-  }
-
-  onBlur() {
-    this.inEditMode = false;
-  }
-
-  submittedTodo(e) {
-    this.inEditMode = false;
   }
 
   deleteTodoOnChild(todo) {
