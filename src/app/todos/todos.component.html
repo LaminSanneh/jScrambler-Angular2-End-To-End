@@ -4,11 +4,11 @@ There are {{todos.length}} todos
 <div class="todos">
   <a class="todo" [routerLink]="['/todo', todo.id]" (deleteTodo)="deleteTodo($event)" *ngFor="let todo of todos">{{todo.title}}</a>
 </div>
-<form class="add-todo" (ngSubmit)="onSubmitNewTodo()" >
+<form class="add-todo" (ngSubmit)="onSubmitNewTodo(todoTitle)" #newTodoForm="ngForm" >
   <p>
-    <input type="text" [(ngModel)]="todoTitle" name="todoTitle">
+    <input type="text" [(ngModel)]="todoTitle" required name="todoTitle">
   </p>
   <p>
-    <input type="submit" value="Add">
+    <input type="submit" value="Add" [disabled]="!newTodoForm.form.valid">
   </p>
 </form>

@@ -18,8 +18,10 @@ export class TodosComponent implements OnInit {
     this.todos = this.todosService.findAll();
   }
 
-  onSubmitNewTodo () {
-    this.todosService.add({title: this.todoTitle});
-    this.todoTitle = "";
+  onSubmitNewTodo (title: string) {
+    if(title.trim().length !== 0) {
+      this.todosService.add({title: title});
+      this.todoTitle = "";
+    }
   }
 }
