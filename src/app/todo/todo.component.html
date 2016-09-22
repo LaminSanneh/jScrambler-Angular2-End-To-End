@@ -1,7 +1,7 @@
-<form (ngSubmit)="submittedTodo()">
-    <input [(ngModel)]="todo.title" type="text" name="todoTitle" value="">
+<form (ngSubmit)="submittedTodo()" #editTodoForm="ngForm">
+    <input [(ngModel)]="todo.title" type="text" name="todoTitle" required value="">
     <span (click)="deleteTodo(todo)">Delete</span>
     <p>
-        <button type="submit">Save</button>
+        <button type="submit" [disabled]="!editTodoForm.form.valid">Save</button>
     </p>
 </form>
