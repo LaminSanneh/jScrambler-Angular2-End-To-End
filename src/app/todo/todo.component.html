@@ -1,5 +1,5 @@
 <form (ngSubmit)="submittedTodo()">
-    <span>{{todo.title}}</span>
+    <input [(ngModel)]="todo.title" type="text" name="todoTitle" value="">
     <span (click)="deleteTodo(todo)">Delete</span>
     <p>
         <button type="submit">Save</button>
