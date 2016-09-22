@@ -1,6 +1,7 @@
 <form (ngSubmit)="submittedTodo()">
-    <input type="text"  
-        name="todoTitle"
-        [(ngModel)]="todo.title" >
-        <span (click)="deleteTodoOnChild(todo)">Delete</span>
+    <span>{{todo.title}}</span>
+    <span (click)="deleteTodo(todo)">Delete</span>
+    <p>
+        <button type="submit">Save</button>
+    </p>
 </form>

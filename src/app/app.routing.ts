@@ -5,7 +5,7 @@ import { TodoComponent } from './todo/todo.component';
 
 const appRoutes: Routes = [
   { path: '', component: TodosComponent },
-  { path: '/todos/:id', component: TodoComponent },
+  { path: 'todo/:id', component: TodoComponent },
 ];
 
 export const appRoutingProviders: any[] = [

@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
 import { TodoComponent } from './todo/todo.component';
+import { TodosService } from './todos/todos.service';
 
 import { routing, appRoutingProviders }  from './app.routing';
 
@@ -21,7 +22,7 @@ import { routing, appRoutingProviders }  from './app.routing';
     HttpModule,
     routing
   ],
-  providers: [appRoutingProviders],
+  providers: [appRoutingProviders, TodosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

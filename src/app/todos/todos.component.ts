@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodosService } from './todos.service';
 
 @Component({
   selector: 'todos',
@@ -8,21 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class TodosComponent implements OnInit {
   public todos = [];
   todoTitle: "";
-  constructor() {
-    [1,2,3].forEach( (i) => { this.todos.push({title: "Todo "+ i }); });
+
+  constructor(private todosService: TodosService) {
+      
   }
 
   ngOnInit() {
-  }
-
-  deleteTodo(todo) {
-    let index = this.todos.indexOf(todo);
-    this.todos.splice(index, 1)
+    this.todos = this.todosService.findAll();
   }
 
   onSubmitNewTodo () {
-    this.todos.push({title: this.todoTitle});
+    this.todosService.add({title: this.todoTitle});
     this.todoTitle = "";
   }
-
 }

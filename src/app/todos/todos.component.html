@@ -2,7 +2,7 @@
 There are {{todos.length}} todos
 </p>
 <div class="todos">
-  <todo class="todo" (deleteTodo)="deleteTodo($event)" *ngFor="let todo of todos" [todo]="todo"></todo>
+  <a class="todo" [routerLink]="['/todo', todo.id]" (deleteTodo)="deleteTodo($event)" *ngFor="let todo of todos">{{todo.title}} {{todo.id}}</a>
 </div>
 <form class="add-todo" (ngSubmit)="onSubmitNewTodo()" >
   <p>
