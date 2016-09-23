@@ -50,4 +50,23 @@ describe('angular2-end-to-end App', function() {
 
     expect(todosList.count()).toEqual(2);
   })
+
+  it("should be able to edit a todo title", () => {
+    browser.get("/");
+    let firstTodo = element.all(by.css(".todos .todo")).first();
+
+    firstTodo.click();
+
+    let todoInputField = element(by.css("todo input[type=text]"));
+    todoInputField.clear();
+    todoInputField.sendKeys("Editted Todo1 Title");
+
+    let saveButton = element(by.css("todo button[type=submit]"));
+    saveButton.click();
+
+    firstTodo = element.all(by.css(".todos .todo")).first();
+    let firstTodoText = firstTodo.getText();
+
+    expect(firstTodoText).toEqual("Editted Todo1 Title");
+  })
 });
