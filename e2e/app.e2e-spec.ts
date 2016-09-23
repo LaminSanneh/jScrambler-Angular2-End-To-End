@@ -69,4 +69,15 @@ describe('angular2-end-to-end App', function() {
 
     expect(firstTodoText).toEqual("Editted Todo1 Title");
   })
+
+  it("Should not be able to save an empty todo", () => {
+    browser.get("/")
+    let newTodoInput = element(by.css(".add-todo input[type=text]"));
+
+    let newTodoSubmitButton = element(by.css(".add-todo input[type=submit]"));
+    newTodoSubmitButton.click();
+
+    let todos = element.all(by.css(".todos .todo"));
+    expect(todos.count()).toEqual(3);
+  })
 });
