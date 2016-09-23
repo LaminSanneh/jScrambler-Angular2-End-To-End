@@ -25,4 +25,15 @@ describe('angular2-end-to-end App', function() {
     let todos = element.all(by.css(".todos .todo"));
     expect(todos.count()).toEqual(4);
   })
+
+  it("should be able to click on a todo on the homepage and get to the details page", () => {
+    browser.get("/")
+    let firstTodo = element.all(by.css(".todos .todo")).first();
+    let firstTodoText = firstTodo.getText();
+
+    firstTodo.click();
+    let inputFieldText = element(by.css("todo input[type=text]")).getAttribute("value");
+
+    expect(inputFieldText).toEqual(firstTodoText);
+  })
 });
