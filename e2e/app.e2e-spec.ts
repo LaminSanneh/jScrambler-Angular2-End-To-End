@@ -36,4 +36,18 @@ describe('angular2-end-to-end App', function() {
 
     expect(inputFieldText).toEqual(firstTodoText);
   })
+
+  it("should be able to delete a todo", () => {
+    browser.get("/")
+    let firstTodo = element.all(by.css(".todos .todo")).first();
+
+    firstTodo.click();
+
+    let deleteLink = element(by.cssContainingText("span", "Delete"));
+    deleteLink.click();
+
+    let todosList = element.all(by.css(".todos .todo"));
+
+    expect(todosList.count()).toEqual(2);
+  })
 });
