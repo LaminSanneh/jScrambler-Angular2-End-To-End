@@ -80,4 +80,11 @@ describe('angular2-end-to-end App', function() {
     let todos = element.all(by.css(".todos .todo"));
     expect(todos.count()).toEqual(3);
   })
+
+  it("Should have add todo button be disabled initially", () => {
+    browser.get("/")
+    let newTodoSubmitButton = element(by.css(".add-todo input[type=submit]"));
+
+    expect(newTodoSubmitButton.isEnabled()).toEqual(false);
+  })
 });
