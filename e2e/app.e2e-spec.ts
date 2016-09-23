@@ -87,4 +87,14 @@ describe('angular2-end-to-end App', function() {
 
     expect(newTodoSubmitButton.isEnabled()).toEqual(false);
   })
+
+  it("Should only enable save todo button when we start typing a new todo title", () => {
+    browser.get("/")
+    let newTodoSubmitButton = element(by.css(".add-todo input[type=submit]"));
+    let newTodoInputField = element(by.css(".add-todo input[type=text]"));
+
+    newTodoInputField.sendKeys("New Todo 4");
+
+    expect(newTodoSubmitButton.isEnabled()).toEqual(true);
+  })
 });
